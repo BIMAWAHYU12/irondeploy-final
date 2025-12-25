@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted  # <--- Perintah sakti buat VPS kamu
+    runs-on: self-hosted
     
     steps:
     - name: Ambil Kodingan
@@ -17,7 +17,6 @@ jobs:
 
     - name: Build & Push
       run: |
-        # Ganti dengan nama image kamu
         IMAGE_TAG=${{ secrets.DOCKER_USER }}/irondeploy-final:${{ github.sha }}
         docker build -t $IMAGE_TAG .
         docker push $IMAGE_TAG
@@ -26,13 +25,14 @@ jobs:
       run: |
         IMAGE_TAG=${{ secrets.DOCKER_USER }}/irondeploy-final:${{ github.sha }}
         
-        # Hapus container lama (kalau ada)
+        # Hapus container lama
         docker stop iron-app || true
         docker rm iron-app || true
         
-        # Jalankan container baru (Tanpa monitoring)
+        # Jalankan container baru DENGAN LABEL MONITORING
         docker run -d \
           --name iron-app \
           -p 80:80 \
           --restart always \
+          --label app=iron-landing \
           $IMAGE_TAG
