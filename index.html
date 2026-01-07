@@ -21,16 +21,16 @@
 
     <style>
       /* =========================================
-           VARIABLE & RESET
+           VARIABLE & RESET (DESAIN TETAP SAMA)
            ========================================= */
       :root {
-        --primary-color: #0f172a; /* Dark Navy - Iron Feel */
-        --secondary-color: #334155; /* Slate - Metal Feel */
-        --accent-color: #2563eb; /* Electric Blue - Tech/Trust */
+        --primary-color: #0f172a;
+        --secondary-color: #334155;
+        --accent-color: #2563eb;
         --accent-hover: #1d4ed8;
         --light-bg: #f8fafc;
         --white: #ffffff;
-        --text-dark: #1e293b; /* Slightly darker for better readability */
+        --text-dark: #1e293b;
         --text-light: #64748b;
         --transition: all 0.3s ease;
         --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -52,24 +52,14 @@
         overflow-x: hidden;
       }
 
-      h1,
-      h2,
-      h3,
-      h4,
-      h5 {
+      h1, h2, h3, h4, h5 {
         font-family: "Poppins", sans-serif;
         color: var(--primary-color);
         line-height: 1.2;
       }
 
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-
-      ul {
-        list-style: none;
-      }
+      a { text-decoration: none; color: inherit; }
+      ul { list-style: none; }
 
       .container {
         max-width: 1200px;
@@ -110,24 +100,15 @@
         color: var(--primary-color);
       }
 
-      .section-padding {
-        padding: 100px 0;
-      }
-
-      .text-center {
-        text-align: center;
-      }
+      .section-padding { padding: 100px 0; }
+      .text-center { text-align: center; }
 
       .section-title {
         margin-bottom: 60px;
         position: relative;
       }
 
-      .section-title h2 {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-      }
-
+      .section-title h2 { font-size: 2.5rem; margin-bottom: 15px; }
       .section-title p {
         color: var(--text-light);
         max-width: 600px;
@@ -144,14 +125,10 @@
         border-radius: 2px;
       }
 
-      /* =========================================
-           HEADER & NAVIGATION (UPDATED COLORS)
-           ========================================= */
+      /* HEADER & NAV */
       header {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
+        top: 0; left: 0; width: 100%;
         z-index: 1000;
         transition: var(--transition);
         padding: 20px 0;
@@ -174,67 +151,39 @@
       .logo {
         font-size: 1.5rem;
         font-weight: 700;
-        /* Menggunakan primary color yang kuat agar tegas */
         color: var(--primary-color);
         display: flex;
         align-items: center;
         gap: 10px;
       }
 
-      .logo i {
-        color: var(--accent-color);
-        font-size: 1.8rem;
-      }
+      .logo i { color: var(--accent-color); font-size: 1.8rem; }
 
-      .nav-links {
-        display: flex;
-        gap: 30px;
-      }
-
+      .nav-links { display: flex; gap: 30px; }
       .nav-links a {
-        font-weight: 600; /* Sedikit lebih tebal */
-        /* Menggunakan text-dark agar lebih kontras dan mudah dibaca */
+        font-weight: 600;
         color: var(--text-dark);
         transition: var(--transition);
         position: relative;
         font-size: 0.95rem;
       }
 
-      .nav-links a:hover {
-        color: var(--accent-color);
-      }
-
+      .nav-links a:hover { color: var(--accent-color); }
       .nav-links a::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: var(--accent-color);
+        content: ""; position: absolute; width: 0; height: 2px;
+        bottom: -5px; left: 0; background-color: var(--accent-color);
         transition: var(--transition);
       }
-
-      .nav-links a:hover::after {
-        width: 100%;
-      }
+      .nav-links a:hover::after { width: 100%; }
 
       .hamburger {
-        display: none;
-        cursor: pointer;
-        font-size: 1.5rem;
-        color: var(--primary-color);
+        display: none; cursor: pointer; font-size: 1.5rem; color: var(--primary-color);
       }
 
-      /* =========================================
-           HERO SECTION
-           ========================================= */
+      /* HERO SECTION */
       .hero {
         height: 100vh;
-        background: linear-gradient(
-            rgba(15, 23, 42, 0.8),
-            rgba(15, 23, 42, 0.7)
-          ),
+        background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.7)),
           url("https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
         background-size: cover;
         background-position: center;
@@ -245,541 +194,241 @@
         position: relative;
       }
 
-      .hero-content {
-        max-width: 800px;
-      }
-
+      .hero-content { max-width: 800px; }
       .hero h1 {
-        font-size: 3.5rem;
-        color: var(--white);
-        margin-bottom: 20px;
-        font-weight: 700;
-        opacity: 0;
-        transform: translateY(30px);
+        font-size: 3.5rem; color: var(--white); margin-bottom: 20px;
+        font-weight: 700; opacity: 0; transform: translateY(30px);
         animation: fadeUp 1s forwards 0.5s;
       }
-
       .hero p {
-        font-size: 1.2rem;
-        margin-bottom: 40px;
-        color: #cbd5e1;
-        opacity: 0;
-        transform: translateY(30px);
+        font-size: 1.2rem; margin-bottom: 40px; color: #cbd5e1;
+        opacity: 0; transform: translateY(30px);
         animation: fadeUp 1s forwards 0.8s;
       }
-
       .hero-buttons {
-        opacity: 0;
-        transform: translateY(30px);
+        opacity: 0; transform: translateY(30px);
         animation: fadeUp 1s forwards 1.1s;
       }
+      .hero-buttons .btn { margin-right: 15px; }
 
-      .hero-buttons .btn {
-        margin-right: 15px;
-      }
-
-      /* =========================================
-           ABOUT US
-           ========================================= */
+      /* ABOUT US */
       .about-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 50px;
-        align-items: center;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;
       }
-
-      .about-img {
-        position: relative;
-      }
-
+      .about-img { position: relative; }
       .about-img img {
-        width: 100%;
-        border-radius: 10px;
-        box-shadow: var(--shadow-lg);
+        width: 100%; border-radius: 10px; box-shadow: var(--shadow-lg);
       }
-
       .about-img::before {
-        content: "";
-        position: absolute;
-        top: -20px;
-        left: -20px;
-        width: 100px;
-        height: 100px;
-        background: var(--accent-color);
-        z-index: -1;
-        border-radius: 10px;
-        opacity: 0.2;
+        content: ""; position: absolute; top: -20px; left: -20px;
+        width: 100px; height: 100px; background: var(--accent-color);
+        z-index: -1; border-radius: 10px; opacity: 0.2;
       }
-
-      .about-text h3 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-      }
-
-      .about-text p {
-        color: var(--text-light);
-        margin-bottom: 20px;
-      }
-
+      .about-text h3 { font-size: 2rem; margin-bottom: 20px; }
+      .about-text p { color: var(--text-light); margin-bottom: 20px; }
       .features-list li {
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: 500;
+        margin-bottom: 15px; display: flex; align-items: center; gap: 10px; font-weight: 500;
       }
+      .features-list i { color: var(--accent-color); }
 
-      .features-list i {
-        color: var(--accent-color);
-      }
-
-      /* =========================================
-           SERVICES
-           ========================================= */
-      .services {
-        background-color: var(--light-bg);
-      }
-
+      /* SERVICES */
+      .services { background-color: var(--light-bg); }
       .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
       }
-
       .service-card {
-        background: var(--white);
-        padding: 40px 30px;
-        border-radius: 10px;
-        box-shadow: var(--shadow-sm);
-        transition: var(--transition);
+        background: var(--white); padding: 40px 30px; border-radius: 10px;
+        box-shadow: var(--shadow-sm); transition: var(--transition);
         border-bottom: 3px solid transparent;
       }
-
       .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: var(--shadow-lg);
+        transform: translateY(-10px); box-shadow: var(--shadow-lg);
         border-bottom: 3px solid var(--accent-color);
       }
-
       .icon-box {
-        width: 70px;
-        height: 70px;
-        background: rgba(37, 99, 235, 0.1);
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 25px;
-        color: var(--accent-color);
-        font-size: 1.8rem;
+        width: 70px; height: 70px; background: rgba(37, 99, 235, 0.1);
+        border-radius: 50%; display: flex; justify-content: center; align-items: center;
+        margin-bottom: 25px; color: var(--accent-color); font-size: 1.8rem;
         transition: var(--transition);
       }
-
       .service-card:hover .icon-box {
-        background: var(--accent-color);
-        color: var(--white);
+        background: var(--accent-color); color: var(--white);
       }
+      .service-card h3 { margin-bottom: 15px; font-size: 1.25rem; }
+      .service-card p { color: var(--text-light); font-size: 0.95rem; }
 
-      .service-card h3 {
-        margin-bottom: 15px;
-        font-size: 1.25rem;
-      }
-
-      .service-card p {
-        color: var(--text-light);
-        font-size: 0.95rem;
-      }
-
-      /* =========================================
-           TEAM SECTION (NEW)
-           ========================================= */
+      /* TEAM SECTION */
       .team-grid {
-        display: grid;
-        /* Menggunakan auto-fit untuk responsif 5 kolom */
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 30px;
-        margin-top: 50px;
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px; margin-top: 50px;
       }
-
       .team-card {
-        background: var(--white);
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: var(--shadow-sm);
-        text-align: center;
-        transition: var(--transition);
+        background: var(--white); border-radius: 15px; overflow: hidden;
+        box-shadow: var(--shadow-sm); text-align: center; transition: var(--transition);
       }
-
       .team-card:hover {
-        transform: translateY(-10px);
-        box-shadow: var(--shadow-lg);
+        transform: translateY(-10px); box-shadow: var(--shadow-lg);
       }
-
       .team-img-wrapper {
-        height: 240px;
-        overflow: hidden;
-        position: relative;
+        height: 240px; overflow: hidden; position: relative;
       }
-
       .team-img-wrapper img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Memastikan gambar terpotong rapi */
-        object-position: center top;
+        width: 100%; height: 100%; object-fit: cover; object-position: center top;
         transition: var(--transition);
       }
-
-      .team-card:hover .team-img-wrapper img {
-        transform: scale(1.05);
-      }
-
-      .team-info {
-        padding: 25px 20px;
-      }
-
+      .team-card:hover .team-img-wrapper img { transform: scale(1.05); }
+      .team-info { padding: 25px 20px; }
       .team-info h4 {
-        font-size: 1.2rem;
-        margin-bottom: 5px;
-        color: var(--primary-color);
+        font-size: 1.2rem; margin-bottom: 5px; color: var(--primary-color);
       }
-
       .team-info p.role {
-        color: var(--accent-color);
-        font-weight: 600;
-        font-size: 0.9rem;
-        margin-bottom: 15px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        color: var(--accent-color); font-weight: 600; font-size: 0.9rem;
+        margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;
       }
-
       .team-socials {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
+        display: flex; justify-content: center; gap: 10px;
       }
-
       .team-socials a {
-        width: 35px;
-        height: 35px;
-        background: var(--light-bg);
-        color: var(--secondary-color);
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: var(--transition);
-        font-size: 0.9rem;
+        width: 35px; height: 35px; background: var(--light-bg);
+        color: var(--secondary-color); border-radius: 50%;
+        display: flex; justify-content: center; align-items: center;
+        transition: var(--transition); font-size: 0.9rem;
       }
-
       .team-socials a:hover {
-        background: var(--accent-color);
-        color: var(--white);
+        background: var(--accent-color); color: var(--white);
       }
 
-      /* =========================================
-           STATS SECTION
-           ========================================= */
+      /* STATS SECTION */
       .stats {
-        background: var(--primary-color);
-        color: var(--white);
-        padding: 80px 0;
+        background: var(--primary-color); color: var(--white); padding: 80px 0;
       }
-
       .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        text-align: center;
-        gap: 20px;
+        display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; gap: 20px;
       }
-
       .stat-item h3 {
-        font-size: 3rem;
-        color: var(--accent-color);
-        margin-bottom: 10px;
+        font-size: 3rem; color: var(--accent-color); margin-bottom: 10px;
       }
+      .stat-item p { font-size: 1.1rem; opacity: 0.8; }
 
-      .stat-item p {
-        font-size: 1.1rem;
-        opacity: 0.8;
-      }
-
-      /* =========================================
-           PROCESS SECTION
-           ========================================= */
+      /* PROCESS SECTION */
       .process-steps {
-        display: flex;
-        justify-content: space-between;
-        position: relative;
-        flex-wrap: wrap;
+        display: flex; justify-content: space-between; position: relative; flex-wrap: wrap;
       }
-
       .process-steps::before {
-        content: "";
-        position: absolute;
-        top: 40px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: #e2e8f0;
-        z-index: -1;
+        content: ""; position: absolute; top: 40px; left: 0; width: 100%;
+        height: 2px; background: #e2e8f0; z-index: -1;
       }
-
       .step-item {
-        text-align: center;
-        flex: 1;
-        padding: 0 15px;
-        background: var(--white);
+        text-align: center; flex: 1; padding: 0 15px; background: var(--white);
       }
-
       .step-number {
-        width: 80px;
-        height: 80px;
-        background: var(--white);
-        border: 2px solid var(--accent-color);
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto 20px;
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--accent-color);
-        box-shadow: 0 0 0 10px var(--white);
+        width: 80px; height: 80px; background: var(--white);
+        border: 2px solid var(--accent-color); border-radius: 50%;
+        display: flex; justify-content: center; align-items: center;
+        margin: 0 auto 20px; font-size: 1.5rem; font-weight: 700;
+        color: var(--accent-color); box-shadow: 0 0 0 10px var(--white);
       }
+      .step-item h4 { margin-bottom: 10px; font-size: 1.2rem; }
+      .step-item p { font-size: 0.9rem; color: var(--text-light); }
 
-      .step-item h4 {
-        margin-bottom: 10px;
-        font-size: 1.2rem;
-      }
-
-      .step-item p {
-        font-size: 0.9rem;
-        color: var(--text-light);
-      }
-
-      /* =========================================
-           CTA SECTION
-           ========================================= */
+      /* CTA SECTION */
       .cta-section {
-        background: linear-gradient(
-          135deg,
-          var(--accent-color),
-          var(--primary-color)
-        );
-        color: var(--white);
-        text-align: center;
-        padding: 80px 0;
+        background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+        color: var(--white); text-align: center; padding: 80px 0;
       }
+      .cta-section h2 { color: var(--white); margin-bottom: 20px; }
 
-      .cta-section h2 {
-        color: var(--white);
-        margin-bottom: 20px;
-      }
-
-      /* =========================================
-           CONTACT SECTION
-           ========================================= */
+      /* CONTACT SECTION (YANG KITA UBAH ISINYA) */
       .contact-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        gap: 50px;
-        background: var(--white);
-        border-radius: 20px;
-        overflow: hidden;
+        display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px;
+        background: var(--white); border-radius: 20px; overflow: hidden;
         box-shadow: var(--shadow-lg);
       }
-
       .contact-info {
-        background: var(--primary-color);
-        color: var(--white);
-        padding: 50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        background: var(--primary-color); color: var(--white); padding: 50px;
+        display: flex; flex-direction: column; justify-content: space-between;
       }
-
       .info-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 20px;
-        margin-bottom: 30px;
+        display: flex; align-items: flex-start; gap: 20px; margin-bottom: 30px;
       }
-
-      .info-item i {
-        font-size: 1.5rem;
-        color: var(--accent-color);
-      }
-
-      .contact-form {
-        padding: 50px;
-      }
-
-      .form-group {
-        margin-bottom: 20px;
-      }
-
+      .info-item i { font-size: 1.5rem; color: var(--accent-color); }
+      .contact-form { padding: 50px; }
+      .form-group { margin-bottom: 20px; }
       .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: 500;
-        font-size: 0.9rem;
+        display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem;
       }
-
       .form-control {
-        width: 100%;
-        padding: 12px 15px;
-        border: 1px solid #cbd5e1;
-        border-radius: 8px;
-        font-family: inherit;
-        transition: var(--transition);
+        width: 100%; padding: 12px 15px; border: 1px solid #cbd5e1;
+        border-radius: 8px; font-family: inherit; transition: var(--transition);
       }
-
       .form-control:focus {
-        outline: none;
-        border-color: var(--accent-color);
+        outline: none; border-color: var(--accent-color);
         box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
       }
+      textarea.form-control { resize: vertical; min-height: 120px; }
 
-      textarea.form-control {
-        resize: vertical;
-        min-height: 120px;
-      }
-
-      /* =========================================
-           FOOTER
-           ========================================= */
+      /* FOOTER */
       footer {
-        background: var(--primary-color);
-        color: #94a3b8;
-        padding: 70px 0 20px;
+        background: var(--primary-color); color: #94a3b8; padding: 70px 0 20px;
         font-size: 0.9rem;
       }
-
       .footer-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 40px;
-        margin-bottom: 50px;
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px; margin-bottom: 50px;
       }
-
       .footer-col h4 {
-        color: var(--white);
-        margin-bottom: 25px;
-        font-size: 1.1rem;
+        color: var(--white); margin-bottom: 25px; font-size: 1.1rem;
       }
-
-      .footer-col ul li {
-        margin-bottom: 12px;
-      }
-
+      .footer-col ul li { margin-bottom: 12px; }
       .footer-col ul li a:hover {
-        color: var(--accent-color);
-        padding-left: 5px;
-        transition: var(--transition);
+        color: var(--accent-color); padding-left: 5px; transition: var(--transition);
       }
-
-      .social-links {
-        display: flex;
-        gap: 15px;
-      }
-
+      .social-links { display: flex; gap: 15px; }
       .social-links a {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: var(--transition);
+        width: 40px; height: 40px; border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1); display: flex;
+        justify-content: center; align-items: center; transition: var(--transition);
       }
-
       .social-links a:hover {
-        background: var(--accent-color);
-        color: var(--white);
+        background: var(--accent-color); color: var(--white);
       }
-
       .footer-bottom {
         border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 20px;
-        text-align: center;
+        padding-top: 20px; text-align: center;
       }
 
-      /* =========================================
-           ANIMATIONS & MEDIA QUERIES
-           ========================================= */
+      /* ANIMATIONS */
       @keyframes fadeUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        to { opacity: 1; transform: translateY(0); }
       }
-
       .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s ease;
+        opacity: 0; transform: translateY(30px); transition: all 0.8s ease;
       }
-
       .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1; transform: translateY(0);
       }
 
+      /* MEDIA QUERIES */
       @media (max-width: 992px) {
-        .hero h1 {
-          font-size: 2.5rem;
-        }
-        .about-grid {
-          grid-template-columns: 1fr;
-        }
-        .contact-wrapper {
-          grid-template-columns: 1fr;
-        }
-        .process-steps::before {
-          display: none;
-        }
-        .step-item {
-          margin-bottom: 30px;
-          flex: 100%;
-        }
-        .stats-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 30px;
-        }
+        .hero h1 { font-size: 2.5rem; }
+        .about-grid { grid-template-columns: 1fr; }
+        .contact-wrapper { grid-template-columns: 1fr; }
+        .process-steps::before { display: none; }
+        .step-item { margin-bottom: 30px; flex: 100%; }
+        .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
       }
-
       @media (max-width: 768px) {
         .nav-links {
-          position: absolute;
-          top: 70px;
-          left: 0;
-          width: 100%;
-          background: var(--white);
-          flex-direction: column;
-          padding: 30px;
-          box-shadow: var(--shadow-lg);
-          clip-path: circle(0% at 100% 0);
+          position: absolute; top: 70px; left: 0; width: 100%;
+          background: var(--white); flex-direction: column; padding: 30px;
+          box-shadow: var(--shadow-lg); clip-path: circle(0% at 100% 0);
           transition: all 0.5s ease-in-out;
         }
-
-        .nav-links a {
-          color: var(--primary-color); /* Warna navbar mobile lebih gelap */
-        }
-
-        .nav-links.active {
-          clip-path: circle(150% at 100% 0);
-        }
-
-        .hamburger {
-          display: block;
-        }
-        .hero {
-          text-align: center;
-        }
-        .hero-content {
-          padding: 0 20px;
-        }
+        .nav-links a { color: var(--primary-color); }
+        .nav-links.active { clip-path: circle(150% at 100% 0); }
+        .hamburger { display: block; }
+        .hero { text-align: center; }
+        .hero-content { padding: 0 20px; }
         .team-grid {
           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
           justify-content: center;
@@ -849,20 +498,16 @@
             </p>
             <ul class="features-list">
               <li>
-                <i class="fa-solid fa-check-circle"></i> Proses Rekrutmen Ketat
-                & Terukur
+                <i class="fa-solid fa-check-circle"></i> Proses Rekrutmen Ketat & Terukur
               </li>
               <li>
-                <i class="fa-solid fa-check-circle"></i> Jaminan Kepatuhan Hukum
-                Ketenagakerjaan
+                <i class="fa-solid fa-check-circle"></i> Jaminan Kepatuhan Hukum Ketenagakerjaan
               </li>
               <li>
-                <i class="fa-solid fa-check-circle"></i> Efisiensi Biaya
-                Operasional hingga 40%
+                <i class="fa-solid fa-check-circle"></i> Efisiensi Biaya Operasional hingga 40%
               </li>
               <li>
-                <i class="fa-solid fa-check-circle"></i> Manajemen SDM
-                Terintegrasi
+                <i class="fa-solid fa-check-circle"></i> Manajemen SDM Terintegrasi
               </li>
             </ul>
           </div>
@@ -1083,12 +728,13 @@
           </div>
 
           <div class="contact-form">
-            <form id="contactForm">
+            <form action="kirim.php" method="POST">
               <div class="form-group">
                 <label for="name">Nama Lengkap</label>
                 <input
                   type="text"
                   id="name"
+                  name="nama" 
                   class="form-control"
                   placeholder="Masukkan nama Anda"
                   required
@@ -1099,6 +745,7 @@
                 <input
                   type="text"
                   id="company"
+                  name="perusahaan"
                   class="form-control"
                   placeholder="Perusahaan Anda"
                   required
@@ -1109,6 +756,7 @@
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   class="form-control"
                   placeholder="contoh@perusahaan.com"
                   required
@@ -1116,7 +764,7 @@
               </div>
               <div class="form-group">
                 <label for="service">Layanan yang Dibutuhkan</label>
-                <select id="service" class="form-control">
+                <select id="service" name="layanan" class="form-control">
                   <option value="">Pilih Layanan</option>
                   <option value="IT">IT & Tech Support</option>
                   <option value="CS">Customer Service</option>
@@ -1129,6 +777,7 @@
                 <label for="message">Pesan</label>
                 <textarea
                   id="message"
+                  name="pesan"
                   class="form-control"
                   placeholder="Ceritakan kebutuhan Anda..."
                 ></textarea>
@@ -1392,24 +1041,6 @@
           started = true;
         }
       };
-
-      // 5. Contact Form Handling
-      const contactForm = document.getElementById("contactForm");
-      contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const btn = this.querySelector("button");
-        const originalText = btn.innerText;
-        btn.innerText = "Mengirim...";
-        btn.style.opacity = "0.7";
-        setTimeout(() => {
-          alert(
-            "Terima kasih! Pesan Anda telah kami terima. Tim IronDeploy akan segera menghubungi Anda."
-          );
-          contactForm.reset();
-          btn.innerText = originalText;
-          btn.style.opacity = "1";
-        }, 1500);
-      });
     </script>
   </body>
 </html>
