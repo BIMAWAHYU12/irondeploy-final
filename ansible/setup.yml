@@ -1,0 +1,58 @@
+---
+- name: Setup Server Iron Deploy (Full Stack Environment)
+  hosts: webservers
+  become: yes
+  tasks:
+    # 1. Update Server 
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    # 2. Install Paket Wajib (Docker, Nginx, Git, dll)
+    - name: Install System Dependencies
+      apt:
+        name:
+          - git
+          - curl
+          - nginx         # Buat Reverse Proxy
+          - docker.io     # Buat Container
+          - docker-compose
+          - python3-pip
+          - acl
+          - neofetch      # Pemanis buatan
+        state: present
+
+    # 3. Pastikan Docker Nyala Terus
+    - name: Start & Enable Docker
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    # 4. Masukkan User ke Grup Docker 
+    - name: Add irondeploy user to docker group
+      user:
+        name: "irondeploy"
+        groups: docker
+        append: yes
+
+    # 5. Siapkan Folder Khusus Monitoring (Grafana/Loki)
+    - name: Create Monitoring Directory Structure
+      file:
+        path: "/home/irondeploy/monitoring"
+        state: directory
+        owner: "irondeploy"
+        group: "irondeploy"
+        mode: '0755'
+
+    # 6. Pastikan Nginx (Reverse Proxy) Nyala
+    - name: Start & Enable Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Deployment Finished
+      debug:
+        msg: "✅ Server Iron Deploy siap tempur! Infrastruktur lengkap."

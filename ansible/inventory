@@ -1,0 +1,6 @@
+[webservers]
+irondeploy_production ansible_host=157.10.253.59 ansible_user=irondeploy
+
+[webservers:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
