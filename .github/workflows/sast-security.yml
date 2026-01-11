@@ -1,0 +1,25 @@
+name: Iron Deploy - SAST Scan (Semgrep)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  sast_scan:
+    name: Semgrep Analysis
+    runs-on: ubuntu-latest
+    container:
+      image: returntocorp/semgrep
+
+    steps:
+      # 1. Ambil Kodingan Kamu
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # 2. Jalankan Semgrep (Mode Auto)
+      # --config=auto artinya dia otomatis mendeteksi bahasa (PHP/JS/HTML) 
+      # dan memilih aturan keamanan standar OWASP.
+      - name: Run Semgrep Security Scan
+        run: semgrep scan --config=auto --verbose

@@ -28,7 +28,7 @@ jobs:
 
       # Jalankan ZAP Scanner
       - name: OWASP ZAP Baseline Scan
-        uses: zaproxy/action-baseline@v0.11.0
+        uses: zaproxy/action-baseline@v0.12.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           target: 'http://localhost:8080'
