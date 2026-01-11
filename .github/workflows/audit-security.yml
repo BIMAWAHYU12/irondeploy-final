@@ -2,40 +2,36 @@ name: Iron Deploy - Security Audit
 
 on:
   push:
-    branches: [ "main" ] # Scan jalan otomatis tiap push
-  workflow_dispatch:      # Tombol manual buat nge-run
+    branches: [ "main" ]
+  workflow_dispatch:
+
+# TAMBAHAN BARU: Memberi izin tulis ke Issues
+permissions:
+  contents: read
+  issues: write 
 
 jobs:
   dast_scan:
-    name: DAST Scan (OWASP ZAP)
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Ambil kodingan & Dockerfile kamu
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # 2. BUILD & RUN CONTAINER
-      # GitHub akan membaca Dockerfile kamu, install PHP, install msmtp, lalu menjalankannya.
+      # Build & Run Container (Punya kamu udah bener)
       - name: Build & Run Docker Container
         run: |
-          # Build image dari Dockerfile kamu
           docker build -t iron-app .
-          
-          # Jalankan container di port 8080
-          # Kita pakai '--add-host' biar msmtp gak bingung nyari gateway (opsional, biar rapi aja)
+          # Pakai --add-host biar msmtp aman
           docker run -d -p 8080:80 --add-host=host.docker.internal:host-gateway --name container-saya iron-app
-          
-          # Tunggu 10 detik biar Apache & PHP siap mental
           sleep 10
 
-      # 3. SERANG DENGAN ZAP (DAST)
-      # Robot ZAP akan menyerang localhost:8080
+      # Jalankan ZAP Scanner
       - name: OWASP ZAP Baseline Scan
         uses: zaproxy/action-baseline@v0.11.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           target: 'http://localhost:8080'
-          allow_issue_writing: true # Ini biar dia bikin Laporan di tab "Issues"
-          fail_action: false # Biar pipeline tetap hijau walaupun ada temuan (Warning Only)
-          cmd_options: '-a' # Tampilkan semua alert
+          allow_issue_writing: true 
+          fail_action: false 
+          cmd_options: '-a'
